@@ -1,8 +1,8 @@
-require 'minitest/unit'
+require 'minitest'
 require 'minitest/autorun'
 require File.expand_path("../../shamirsecret.rb", __FILE__) 
 
-class TestShamirSecret < MiniTest::Unit::TestCase
+class TestShamirSecret < MiniTest::Test
   def setup
     @shamirsecretobj = ShamirSecret.new(2, "hello")
   end

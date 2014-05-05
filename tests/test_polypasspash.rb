@@ -1,8 +1,8 @@
-require 'minitest/unit'
+require 'minitest'
 require 'minitest/autorun'
 require File.expand_path("../../polypasshash.rb", __FILE__)
 
-class TestPolyPassHash < MiniTest::Unit::TestCase
+class TestPolyPassHash < MiniTest::Test
   THRESHOLD = 10
   def setup
     @pph = PolyPassHash.new(THRESHOLD, nil)
