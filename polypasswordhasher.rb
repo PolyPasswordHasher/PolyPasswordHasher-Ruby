@@ -5,7 +5,7 @@ require File.expand_path("../shamirsecret.rb", __FILE__)
 
 class ValueError < Exception; end
 
-class PolyPassHash
+class PolyPasswordHasher
   def initialize(threshold, passwordfile=nil, partialbytes=0)
     @threshold = threshold
     @accountdict = {}

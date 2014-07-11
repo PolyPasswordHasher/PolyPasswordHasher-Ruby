@@ -1,11 +1,11 @@
 require 'minitest'
 require 'minitest/autorun'
-require File.expand_path("../../polypasshash.rb", __FILE__)
+require File.expand_path("../../polypasswordhasher.rb", __FILE__)
 
-class TestPolyPassHash < MiniTest::Test
+class TestPolyPasswordHasher < MiniTest::Test
   THRESHOLD = 10
   def setup
-    @pph = PolyPassHash.new(THRESHOLD, nil)
+    @pph = PolyPasswordHasher.new(THRESHOLD, nil)
   end
   
   def test_create_account
@@ -35,7 +35,7 @@ class TestPolyPassHash < MiniTest::Test
     @pph.write_password_data('securepasswords_ruby')
     @pph = nil
 
-    @pph = PolyPassHash.new(THRESHOLD, 'securepasswords_ruby') 
+    @pph = PolyPasswordHasher.new(THRESHOLD, 'securepasswords_ruby') 
     assert_raises ValueError do 
       @pph.is_valid_login('alice', 'kitten')
     end
@@ -44,7 +44,7 @@ class TestPolyPassHash < MiniTest::Test
   end
 
   def test_partial_valification
-    @pph = PolyPassHash.new(THRESHOLD, nil, 2)
+    @pph = PolyPasswordHasher.new(THRESHOLD, nil, 2)
 
     @pph.create_account('admin', 'correct horse', THRESHOLD/2)
     @pph.create_account('root','battery staple',THRESHOLD/2)
@@ -65,7 +65,7 @@ class TestPolyPassHash < MiniTest::Test
     @pph.write_password_data('securepasswords_ruby')
     @pph = nil
 
-    @pph = PolyPassHash.new(THRESHOLD, 'securepasswords_ruby', 2)
+    @pph = PolyPasswordHasher.new(THRESHOLD, 'securepasswords_ruby', 2)
 
     assert(@pph.is_valid_login('alice', 'kitten'))
     assert(@pph.is_valid_login('admin', 'correct horse'))

@@ -1,7 +1,7 @@
-PolyPassHash-Ruby
+PolyPasswordHasher-Ruby
 =================
 
-Ruby implementation of the PolyPassHash password storage scheme
+Ruby implementation of the PolyPasswordHasher password storage scheme
 
 ## Running tests
 ```sh
